@@ -1,0 +1,384 @@
+{
+  "editors": [
+    {
+      "id": "WX_TEMP",
+      "ranges": [
+        {
+          "uom": 17,
+          "min": -130,
+          "max": 200,
+          "step": 0.1,
+          "prec": 1
+        },
+        {
+          "uom": 4,
+          "min": -90,
+          "max": 100,
+          "step": 0.1,
+          "prec": 1
+        }
+      ]
+    },
+    {
+      "id": "WX_PCT",
+      "ranges": [
+        {
+          "uom": 51,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "prec": 0
+        }
+      ]
+    },
+    {
+      "id": "WX_PRESS",
+      "ranges": [
+        {
+          "uom": 23,
+          "min": 0,
+          "max": 40,
+          "step": 0.01,
+          "prec": 2
+        },
+        {
+          "uom": 117,
+          "min": 0,
+          "max": 1100,
+          "step": 0.1,
+          "prec": 1
+        }
+      ]
+    },
+    {
+      "id": "WX_SPEED",
+      "ranges": [
+        {
+          "uom": 48,
+          "min": 0,
+          "max": 300,
+          "step": 0.1,
+          "prec": 1
+        },
+        {
+          "uom": 32,
+          "min": 0,
+          "max": 500,
+          "step": 0.1,
+          "prec": 1
+        }
+      ]
+    },
+    {
+      "id": "WX_WINDDIR",
+      "ranges": [
+        {
+          "uom": 76,
+          "min": 0,
+          "max": 360,
+          "step": 1,
+          "prec": 0
+        }
+      ]
+    },
+    {
+      "id": "WX_UV",
+      "ranges": [
+        {
+          "uom": 71,
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "prec": 1
+        }
+      ]
+    },
+    {
+      "id": "WX_PRECIP",
+      "ranges": [
+        {
+          "uom": 105,
+          "min": 0,
+          "max": 100,
+          "step": 0.01,
+          "prec": 2
+        },
+        {
+          "uom": 82,
+          "min": 0,
+          "max": 2500,
+          "step": 0.1,
+          "prec": 1
+        }
+      ]
+    },
+    {
+      "id": "WX_VIS",
+      "ranges": [
+        {
+          "uom": 116,
+          "min": 0,
+          "max": 200,
+          "step": 0.1,
+          "prec": 1
+        },
+        {
+          "uom": 83,
+          "min": 0,
+          "max": 300,
+          "step": 0.1,
+          "prec": 1
+        }
+      ]
+    },
+    {
+      "id": "WX_CODE",
+      "ranges": [
+        {
+          "uom": 56,
+          "min": 0,
+          "max": 9999,
+          "step": 1,
+          "prec": 0
+        }
+      ]
+    },
+    {
+      "id": "WX_DAYNIGHT",
+      "ranges": [
+        {
+          "uom": 25,
+          "subset": "0-1",
+          "names": {
+            "0": "Night",
+            "1": "Day"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WX_AQI",
+      "ranges": [
+        {
+          "uom": 25,
+          "subset": "0-6",
+          "names": {
+            "0": "Unknown",
+            "1": "Good",
+            "2": "Moderate",
+            "3": "Unhealthy for Sensitive Groups",
+            "4": "Unhealthy",
+            "5": "Very Unhealthy",
+            "6": "Hazardous"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WX_PM",
+      "ranges": [
+        {
+          "uom": 122,
+          "min": 0,
+          "max": 2000,
+          "step": 0.1,
+          "prec": 1
+        }
+      ]
+    },
+    {
+      "id": "ED_CONTROLLER_ST",
+      "ranges": [
+        {
+          "subset": "0,1",
+          "uom": "25",
+          "names": {
+            "0": "Not Connected",
+            "1": "Connected"
+          }
+        }
+      ]
+    }
+  ],
+  "nodedefs": [
+    {
+      "id": "131313_controller",
+      "name": "WeatherAPI",
+      "properties": [
+        {
+          "id": "ST",
+          "name": "Status",
+          "editor": "ED_CONTROLLER_ST"
+        }
+      ],
+      "cmds": {
+        "sends": [],
+        "accepts": [
+          {
+            "id": "REFRESH",
+            "name": "Refresh Now",
+            "native": "false"
+          }
+        ]
+      },
+      "links": {
+        "ctl": [],
+        "rsp": []
+      }
+    },
+    {
+      "id": "131313_current",
+      "name": "Current Conditions",
+      "properties": [
+        {
+          "id": "ST",
+          "name": "Temperature",
+          "editor": "WX_TEMP"
+        },
+        {
+          "id": "FEELS_LIKE",
+          "name": "Feels Like",
+          "editor": "WX_TEMP"
+        },
+        {
+          "id": "DEWPT",
+          "name": "Dew Point",
+          "editor": "WX_TEMP"
+        },
+        {
+          "id": "CLIHUM",
+          "name": "Humidity",
+          "editor": "WX_PCT"
+        },
+        {
+          "id": "BARPRES",
+          "name": "Pressure",
+          "editor": "WX_PRESS"
+        },
+        {
+          "id": "SPEED",
+          "name": "Wind Speed",
+          "editor": "WX_SPEED"
+        },
+        {
+          "id": "GUST",
+          "name": "Wind Gust",
+          "editor": "WX_SPEED"
+        },
+        {
+          "id": "WINDDIR",
+          "name": "Wind Direction",
+          "editor": "WX_WINDDIR"
+        },
+        {
+          "id": "CLOUD_COVER",
+          "name": "Cloud Cover",
+          "editor": "WX_PCT"
+        },
+        {
+          "id": "UV",
+          "name": "UV Index",
+          "editor": "WX_UV"
+        },
+        {
+          "id": "PRECIP",
+          "name": "Precipitation",
+          "editor": "WX_PRECIP"
+        },
+        {
+          "id": "VISIBILITY",
+          "name": "Visibility",
+          "editor": "WX_VIS"
+        },
+        {
+          "id": "COND_CODE",
+          "name": "Condition Code",
+          "editor": "WX_CODE"
+        },
+        {
+          "id": "DAYNIGHT",
+          "name": "Day/Night",
+          "editor": "WX_DAYNIGHT"
+        },
+        {
+          "id": "AQI",
+          "name": "Air Quality (US EPA)",
+          "editor": "WX_AQI"
+        },
+        {
+          "id": "PM25",
+          "name": "PM2.5",
+          "editor": "WX_PM"
+        },
+        {
+          "id": "PM10",
+          "name": "PM10",
+          "editor": "WX_PM"
+        }
+      ],
+      "cmds": {
+        "sends": [],
+        "accepts": []
+      },
+      "links": {
+        "ctl": [],
+        "rsp": []
+      }
+    },
+    {
+      "id": "131313_forecast",
+      "name": "Forecast Day",
+      "properties": [
+        {
+          "id": "ST",
+          "name": "High Temperature",
+          "editor": "WX_TEMP"
+        },
+        {
+          "id": "TEMP_LOW",
+          "name": "Low Temperature",
+          "editor": "WX_TEMP"
+        },
+        {
+          "id": "POP",
+          "name": "Chance of Rain",
+          "editor": "WX_PCT"
+        },
+        {
+          "id": "POP_SNOW",
+          "name": "Chance of Snow",
+          "editor": "WX_PCT"
+        },
+        {
+          "id": "PRECIP",
+          "name": "Total Precipitation",
+          "editor": "WX_PRECIP"
+        },
+        {
+          "id": "SPEED",
+          "name": "Max Wind Speed",
+          "editor": "WX_SPEED"
+        },
+        {
+          "id": "UV",
+          "name": "UV Index",
+          "editor": "WX_UV"
+        },
+        {
+          "id": "COND_CODE",
+          "name": "Condition Code",
+          "editor": "WX_CODE"
+        }
+      ],
+      "cmds": {
+        "sends": [],
+        "accepts": []
+      },
+      "links": {
+        "ctl": [],
+        "rsp": []
+      }
+    }
+  ],
+  "linkdefs": []
+}

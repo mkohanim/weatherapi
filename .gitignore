@@ -1,0 +1,20 @@
+# Live credentials / host-issued identity -- never commit
+.iox_env
+plugin_*.key
+plugin_*.cert
+*.key
+*.pem
+
+# Local dev / runtime artifacts
+.venv/
+.vscode/
+__pycache__/
+*.pyc
+.pytest_cache/
+logs/
+persist/
+NSplugin_*.lock
+svc.pid
+*.bak
+
+data/

@@ -1,0 +1,429 @@
+{
+  "profile": {
+    "editors": [
+      {
+        "id": "WX_TEMP",
+        "ranges": [
+          {
+            "uom": 17,
+            "min": -130,
+            "max": 200,
+            "step": 0.1,
+            "prec": 1
+          },
+          {
+            "uom": 4,
+            "min": -90,
+            "max": 100,
+            "step": 0.1,
+            "prec": 1
+          }
+        ]
+      },
+      {
+        "id": "WX_PCT",
+        "ranges": [
+          {
+            "uom": 51,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "prec": 0
+          }
+        ]
+      },
+      {
+        "id": "WX_PRESS",
+        "ranges": [
+          {
+            "uom": 23,
+            "min": 0,
+            "max": 40,
+            "step": 0.01,
+            "prec": 2
+          },
+          {
+            "uom": 117,
+            "min": 0,
+            "max": 1100,
+            "step": 0.1,
+            "prec": 1
+          }
+        ]
+      },
+      {
+        "id": "WX_SPEED",
+        "ranges": [
+          {
+            "uom": 48,
+            "min": 0,
+            "max": 300,
+            "step": 0.1,
+            "prec": 1
+          },
+          {
+            "uom": 32,
+            "min": 0,
+            "max": 500,
+            "step": 0.1,
+            "prec": 1
+          }
+        ]
+      },
+      {
+        "id": "WX_WINDDIR",
+        "ranges": [
+          {
+            "uom": 76,
+            "min": 0,
+            "max": 360,
+            "step": 1,
+            "prec": 0
+          }
+        ]
+      },
+      {
+        "id": "WX_UV",
+        "ranges": [
+          {
+            "uom": 71,
+            "min": 0,
+            "max": 20,
+            "step": 0.1,
+            "prec": 1
+          }
+        ]
+      },
+      {
+        "id": "WX_PRECIP",
+        "ranges": [
+          {
+            "uom": 105,
+            "min": 0,
+            "max": 100,
+            "step": 0.01,
+            "prec": 2
+          },
+          {
+            "uom": 82,
+            "min": 0,
+            "max": 2500,
+            "step": 0.1,
+            "prec": 1
+          }
+        ]
+      },
+      {
+        "id": "WX_VIS",
+        "ranges": [
+          {
+            "uom": 116,
+            "min": 0,
+            "max": 200,
+            "step": 0.1,
+            "prec": 1
+          },
+          {
+            "uom": 83,
+            "min": 0,
+            "max": 300,
+            "step": 0.1,
+            "prec": 1
+          }
+        ]
+      },
+      {
+        "id": "WX_CODE",
+        "ranges": [
+          {
+            "uom": 56,
+            "min": 0,
+            "max": 9999,
+            "step": 1,
+            "prec": 0
+          }
+        ]
+      },
+      {
+        "id": "WX_DAYNIGHT",
+        "ranges": [
+          {
+            "uom": 25,
+            "subset": "0-1",
+            "names": {
+              "0": "Night",
+              "1": "Day"
+            }
+          }
+        ]
+      },
+      {
+        "id": "WX_AQI",
+        "ranges": [
+          {
+            "uom": 25,
+            "subset": "0-6",
+            "names": {
+              "0": "Unknown",
+              "1": "Good",
+              "2": "Moderate",
+              "3": "Unhealthy for Sensitive Groups",
+              "4": "Unhealthy",
+              "5": "Very Unhealthy",
+              "6": "Hazardous"
+            }
+          }
+        ]
+      },
+      {
+        "id": "WX_PM",
+        "ranges": [
+          {
+            "uom": 122,
+            "min": 0,
+            "max": 2000,
+            "step": 0.1,
+            "prec": 1
+          }
+        ]
+      },
+      {
+        "id": "ED_CONTROLLER_ST",
+        "ranges": [
+          {
+            "subset": "0,1",
+            "uom": "25",
+            "names": {
+              "0": "Not Connected",
+              "1": "Connected"
+            }
+          }
+        ]
+      }
+    ],
+    "nodedefs": [
+      {
+        "id": "131313_controller",
+        "name": "WeatherAPI",
+        "properties": [
+          {
+            "id": "ST",
+            "name": "Status",
+            "editor": "ED_CONTROLLER_ST"
+          }
+        ],
+        "cmds": {
+          "sends": [],
+          "accepts": [
+            {
+              "id": "REFRESH",
+              "name": "Refresh Now",
+              "native": "false"
+            }
+          ]
+        },
+        "links": {
+          "ctl": [],
+          "rsp": []
+        }
+      },
+      {
+        "id": "131313_current",
+        "name": "Current Conditions",
+        "properties": [
+          {
+            "id": "ST",
+            "name": "Temperature",
+            "editor": "WX_TEMP"
+          },
+          {
+            "id": "FEELS_LIKE",
+            "name": "Feels Like",
+            "editor": "WX_TEMP"
+          },
+          {
+            "id": "DEWPT",
+            "name": "Dew Point",
+            "editor": "WX_TEMP"
+          },
+          {
+            "id": "CLIHUM",
+            "name": "Humidity",
+            "editor": "WX_PCT"
+          },
+          {
+            "id": "BARPRES",
+            "name": "Pressure",
+            "editor": "WX_PRESS"
+          },
+          {
+            "id": "SPEED",
+            "name": "Wind Speed",
+            "editor": "WX_SPEED"
+          },
+          {
+            "id": "GUST",
+            "name": "Wind Gust",
+            "editor": "WX_SPEED"
+          },
+          {
+            "id": "WINDDIR",
+            "name": "Wind Direction",
+            "editor": "WX_WINDDIR"
+          },
+          {
+            "id": "CLOUD_COVER",
+            "name": "Cloud Cover",
+            "editor": "WX_PCT"
+          },
+          {
+            "id": "UV",
+            "name": "UV Index",
+            "editor": "WX_UV"
+          },
+          {
+            "id": "PRECIP",
+            "name": "Precipitation",
+            "editor": "WX_PRECIP"
+          },
+          {
+            "id": "VISIBILITY",
+            "name": "Visibility",
+            "editor": "WX_VIS"
+          },
+          {
+            "id": "COND_CODE",
+            "name": "Condition Code",
+            "editor": "WX_CODE"
+          },
+          {
+            "id": "DAYNIGHT",
+            "name": "Day/Night",
+            "editor": "WX_DAYNIGHT"
+          },
+          {
+            "id": "AQI",
+            "name": "Air Quality (US EPA)",
+            "editor": "WX_AQI"
+          },
+          {
+            "id": "PM25",
+            "name": "PM2.5",
+            "editor": "WX_PM"
+          },
+          {
+            "id": "PM10",
+            "name": "PM10",
+            "editor": "WX_PM"
+          }
+        ],
+        "cmds": {
+          "sends": [],
+          "accepts": []
+        },
+        "links": {
+          "ctl": [],
+          "rsp": []
+        }
+      },
+      {
+        "id": "131313_forecast",
+        "name": "Forecast Day",
+        "properties": [
+          {
+            "id": "ST",
+            "name": "High Temperature",
+            "editor": "WX_TEMP"
+          },
+          {
+            "id": "TEMP_LOW",
+            "name": "Low Temperature",
+            "editor": "WX_TEMP"
+          },
+          {
+            "id": "POP",
+            "name": "Chance of Rain",
+            "editor": "WX_PCT"
+          },
+          {
+            "id": "POP_SNOW",
+            "name": "Chance of Snow",
+            "editor": "WX_PCT"
+          },
+          {
+            "id": "PRECIP",
+            "name": "Total Precipitation",
+            "editor": "WX_PRECIP"
+          },
+          {
+            "id": "SPEED",
+            "name": "Max Wind Speed",
+            "editor": "WX_SPEED"
+          },
+          {
+            "id": "UV",
+            "name": "UV Index",
+            "editor": "WX_UV"
+          },
+          {
+            "id": "COND_CODE",
+            "name": "Condition Code",
+            "editor": "WX_CODE"
+          }
+        ],
+        "cmds": {
+          "sends": [],
+          "accepts": []
+        },
+        "links": {
+          "ctl": [],
+          "rsp": []
+        }
+      }
+    ],
+    "linkdefs": []
+  },
+  "server_entry": {
+    "name": "WeatherAPI",
+    "type": "python3",
+    "desc": "Current conditions, multi-day forecast and air quality from WeatherAPI.com for one location, in US or metric units.",
+    "customParams": {
+      "api_key": "",
+      "location": "",
+      "units": "us",
+      "forecast_days": "3"
+    },
+    "discover": false,
+    "isyAccess": false,
+    "requireEisyui": false,
+    "authorize": false,
+    "ai_enabled": false,
+    "webhook_enabled": false,
+    "shortPoll": 300,
+    "longPoll": 900,
+    "extra_requirements": [
+      "requests>=2.31.0"
+    ]
+  },
+  "readme_body": "An eisy/IoX plugin that brings weather from [WeatherAPI.com](https://www.weatherapi.com/) into eisy for a single location.\n\n## What you get\n\n- **Current Conditions** node: temperature (the node's status value), feels-like, dew point, humidity, pressure, wind speed / gust / direction, cloud cover, UV index, precipitation, visibility, condition code, day/night, and air quality (US EPA index, PM2.5, PM10).\n- **Forecast nodes** (Today, Tomorrow, Day 3, ...): high temperature (the node's status value), low temperature, chance of rain, chance of snow, total precipitation, max wind speed, UV index and condition code.\n- **Refresh Now** command on the controller node.\n\n## Setup\n\n1. Create a free key at weatherapi.com.\n2. Install the plugin and open its configuration page.\n3. Fill in the custom parameters:\n   - `api_key` - your WeatherAPI.com key\n   - `location` - city, `lat,lon`, or postcode\n   - `units` - `us` or `metric`\n   - `forecast_days` - 1 to 14 (limited by your WeatherAPI.com plan)\n\n## How it works\n\nOne call to `forecast.json` (with `aqi=yes`) per update returns current conditions, the forecast and air quality together, so each update costs a single API call. Updates run every 15 minutes (long poll).\n\nEach unit-dependent value carries both unit systems in its editor, and the plugin reports the unit chosen by `units`. Sunrise/sunset is not included in this version.\n\n## Upgrading to 1.1.0\n\nThe Current Conditions temperature moved from property id `CLITEMP` to `ST`, and the Forecast Day high temperature from `TEMP_HIGH` to `ST`. Programs or scenes that referenced the old ids need to be pointed at `ST`.\n\n## Errors\n\nAPI problems (invalid or missing key, location not found, quota exceeded, key disabled, plan restriction, network failure) show up as notices on the configuration page. The API key is never written to the log.",
+  "override_bodies": {
+    "processConfig": "    def processConfig(self, config):\n        import threading\n        st = self.__dict__.setdefault('_wxs', {'cfg': {}, 'nodes': {}, 'lock': threading.Lock(), 'started': False, 'known': set()})\n        # On a restart, remember which forecast nodes already exist so refresh() can remove extras.\n        try:\n            nodes = (config or {}).get('nodes') or []\n            if isinstance(nodes, dict):\n                addrs = list(nodes.keys()) + [n.get('address') for n in nodes.values() if isinstance(n, dict)]\n            else:\n                addrs = [n.get('address') for n in nodes if isinstance(n, dict)]\n            st['known'] = set(a for a in addrs if isinstance(a, str) and a.startswith('fcst_'))\n        except Exception as ex:\n            LOGGER.error('processConfig: %s', type(ex).__name__)\n",
+    "parameterHandler": "    def parameterHandler(self, params):\n        import threading\n        st = self.__dict__.setdefault('_wxs', {'cfg': {}, 'nodes': {}, 'lock': threading.Lock(), 'started': False, 'known': set()})\n        params = params or {}\n        api_key = str(params.get('api_key') or '').strip()\n        location = str(params.get('location') or '').strip()\n        units = str(params.get('units') or 'us').strip().lower()\n        notes = []\n        metric = False\n        if units in ('metric', 'si'):\n            metric = True\n        elif units not in ('us', 'imperial'):\n            notes.append(\"units must be 'us' or 'metric' (you entered '%s'); using 'us'.\" % units)\n        days_raw = str(params.get('forecast_days') or '3').strip()\n        try:\n            days = int(float(days_raw))\n        except ValueError:\n            days = 3\n            notes.append(\"forecast_days must be a whole number from 1 to 14 (you entered '%s'); using 3.\" % days_raw)\n        if days < 1 or days > 14:\n            days = min(max(days, 1), 14)\n            notes.append('forecast_days must be between 1 and 14; using %d.' % days)\n\n        def setn(key, msg):\n            try:\n                if msg:\n                    self.poly.Notices[key] = msg\n                else:\n                    self.poly.Notices.delete(key)\n            except Exception as ex:\n                LOGGER.debug('notice %s: %s', key, type(ex).__name__)\n\n        setn('config', None if (api_key and location) else \"Enter your WeatherAPI.com api_key and location in the plugin's Custom Parameters, then save.\")\n        setn('params', ' '.join(notes) if notes else None)\n\n        new = {'api_key': api_key, 'location': location, 'metric': metric, 'days': days}\n        changed = new != st['cfg']\n        st['cfg'] = new\n        # Settings edited while running: refresh right away (off this thread).\n        if st['started'] and changed and api_key and location:\n            threading.Thread(target=self.refresh, daemon=True).start()\n",
+    "start": "    def start(self):\n        import threading\n        st = self.__dict__.setdefault('_wxs', {'cfg': {}, 'nodes': {}, 'lock': threading.Lock(), 'started': False, 'known': set()})\n        st['started'] = True\n        LOGGER.info('WeatherAPI starting (units=%s, forecast_days=%s)', 'metric' if st['cfg'].get('metric') else 'us', st['cfg'].get('days'))\n        self.refresh()\n",
+    "stop": "    def stop(self):\n        st = self.__dict__.get('_wxs')\n        if st:\n            st['started'] = False\n        LOGGER.info('WeatherAPI stopped')\n",
+    "shortPoll": "    def shortPoll(self, *args, **kwargs):\n        pass\n",
+    "longPoll": "    def longPoll(self, *args, **kwargs):\n        self.refresh()\n",
+    "refresh": "    def refresh(self, *args, **kwargs):\n        import threading\n        import requests\n        from current_node import CurrentConditions\n        from forecast_node import ForecastDay\n        st = self.__dict__.setdefault('_wxs', {'cfg': {}, 'nodes': {}, 'lock': threading.Lock(), 'started': False, 'known': set()})\n        cfg = st['cfg']\n        if not cfg.get('api_key') or not cfg.get('location'):\n            return\n\n        def setn(key, msg):\n            try:\n                if msg:\n                    self.poly.Notices[key] = msg\n                else:\n                    self.poly.Notices.delete(key)\n            except Exception as ex:\n                LOGGER.debug('notice %s: %s', key, type(ex).__name__)\n\n        with st['lock']:\n            cfg = st['cfg']\n            try:\n                resp = requests.get(\n                    'https://api.weatherapi.com/v1/forecast.json',\n                    params={'key': cfg['api_key'], 'q': cfg['location'], 'days': cfg['days'], 'aqi': 'yes', 'alerts': 'no'},\n                    timeout=20)\n            except requests.RequestException as ex:\n                # Never log str(ex): the request URL (with the API key) is in it.\n                LOGGER.error('WeatherAPI request failed: %s', type(ex).__name__)\n                setn('api', 'Could not reach WeatherAPI.com (%s). Will retry on the next update.' % type(ex).__name__)\n                return\n            try:\n                data = resp.json()\n            except ValueError:\n                data = None\n            if not isinstance(data, dict):\n                LOGGER.error('WeatherAPI unexpected response, HTTP %s', resp.status_code)\n                setn('api', 'WeatherAPI.com returned an unexpected response (HTTP %s).' % resp.status_code)\n                return\n            err = data.get('error')\n            if err:\n                code = err.get('code') if isinstance(err, dict) else None\n                api_msg = err.get('message', '') if isinstance(err, dict) else str(err)\n                friendly = {\n                    1002: 'No API key was sent. Set api_key.',\n                    2006: 'The API key is invalid. Check api_key.',\n                    1006: 'Location not found. Check location.',\n                    2007: 'Your monthly WeatherAPI.com call quota is used up.',\n                    2008: 'Your WeatherAPI.com API key has been disabled.',\n                    2009: \"Your WeatherAPI.com plan doesn't allow this request (try a lower forecast_days).\",\n                }.get(code, 'WeatherAPI.com reported an error.')\n                LOGGER.error('WeatherAPI error %s: %s', code, api_msg)\n                setn('api', '%s (error %s: %s)' % (friendly, code, api_msg))\n                return\n\n            cur = data.get('current') or {}\n            fdays = (data.get('forecast') or {}).get('forecastday') or []\n            metric = bool(cfg['metric'])\n            want = cfg['days']\n            n = min(want, len(fdays))\n            nodes = st['nodes']\n\n            if 'current' not in nodes:\n                node = CurrentConditions(self.poly, self.address, 'current', 'Current Conditions')\n                self.poly.addNode(node)\n                nodes['current'] = node\n            for i in range(1, n + 1):\n                addr = 'fcst_%d' % i\n                if addr not in nodes:\n                    name = 'Today' if i == 1 else ('Tomorrow' if i == 2 else 'Day %d' % i)\n                    node = ForecastDay(self.poly, self.address, addr, name)\n                    self.poly.addNode(node)\n                    nodes[addr] = node\n            # Remove forecast nodes beyond the configured/available number of days.\n            for addr in set(a for a in nodes if a.startswith('fcst_')) | set(st['known']):\n                try:\n                    idx = int(addr.split('_', 1)[1])\n                except (ValueError, IndexError):\n                    continue\n                if idx > n:\n                    self.poly.delNode(addr)\n                    nodes.pop(addr, None)\n            st['known'] = set()\n\n            if n < want:\n                setn('plan', 'WeatherAPI.com returned %d forecast day(s) but forecast_days is %d. Your plan may limit the forecast length.' % (n, want))\n            else:\n                setn('plan', None)\n\n            nodes['current'].update(cur, metric)\n            for i in range(n):\n                nodes['fcst_%d' % (i + 1)].update(fdays[i].get('day') or {}, metric)\n            setn('api', None)\n            LOGGER.info('WeatherAPI updated for %s: current + %d forecast day(s), %s units', (data.get('location') or {}).get('name', '?'), n, 'metric' if metric else 'US')\n"
+  },
+  "node_classes": {
+    "current_node": "\"\"\"Current Conditions node for WeatherAPI.com.\"\"\"\n\nimport udi_interface\n\nLOGGER = udi_interface.LOGGER\n\n\ndef _num(src, key):\n    \"\"\"Return src[key] as a float, or None if missing/not numeric.\"\"\"\n    try:\n        v = src.get(key)\n        return None if v is None else float(v)\n    except (TypeError, ValueError, AttributeError):\n        return None\n\n\nclass CurrentConditions(udi_interface.Node):\n    id = '131313_current'\n    # Default uoms are the US ones; update() passes the right uom on every set.\n    # ST is the node's status value: the current temperature.\n    drivers = [\n        {'driver': 'ST', 'value': 0, 'uom': 17, 'name': 'Temperature'},\n        {'driver': 'FEELS_LIKE', 'value': 0, 'uom': 17, 'name': 'Feels Like'},\n        {'driver': 'DEWPT', 'value': 0, 'uom': 17, 'name': 'Dew Point'},\n        {'driver': 'CLIHUM', 'value': 0, 'uom': 51, 'name': 'Humidity'},\n        {'driver': 'BARPRES', 'value': 0, 'uom': 23, 'name': 'Pressure'},\n        {'driver': 'SPEED', 'value': 0, 'uom': 48, 'name': 'Wind Speed'},\n        {'driver': 'GUST', 'value': 0, 'uom': 48, 'name': 'Wind Gust'},\n        {'driver': 'WINDDIR', 'value': 0, 'uom': 76, 'name': 'Wind Direction'},\n        {'driver': 'CLOUD_COVER', 'value': 0, 'uom': 51, 'name': 'Cloud Cover'},\n        {'driver': 'UV', 'value': 0, 'uom': 71, 'name': 'UV Index'},\n        {'driver': 'PRECIP', 'value': 0, 'uom': 105, 'name': 'Precipitation'},\n        {'driver': 'VISIBILITY', 'value': 0, 'uom': 116, 'name': 'Visibility'},\n        {'driver': 'COND_CODE', 'value': 0, 'uom': 56, 'name': 'Condition Code'},\n        {'driver': 'DAYNIGHT', 'value': 0, 'uom': 25, 'name': 'Day/Night'},\n        {'driver': 'AQI', 'value': 0, 'uom': 25, 'name': 'Air Quality (US EPA)'},\n        {'driver': 'PM25', 'value': 0, 'uom': 122, 'name': 'PM2.5'},\n        {'driver': 'PM10', 'value': 0, 'uom': 122, 'name': 'PM10'},\n    ]\n\n    def _put(self, driver, value, uom, prec=1, text=None):\n        if value is None:\n            return  # field missing from this response: keep the last value\n        value = round(value, prec) if prec else int(round(value))\n        if text is None:\n            self.setDriver(driver, value, uom=uom)\n        else:\n            self.setDriver(driver, value, uom=uom, text=text)\n\n    def update(self, cur, metric):\n        \"\"\"Apply the 'current' object of a WeatherAPI.com response.\"\"\"\n        cur = cur or {}\n        m = bool(metric)\n        sfx = 'c' if m else 'f'\n        t_uom = 4 if m else 17\n        s_uom = 32 if m else 48\n\n        self._put('ST', _num(cur, 'temp_' + sfx), t_uom)\n        self._put('FEELS_LIKE', _num(cur, 'feelslike_' + sfx), t_uom)\n        self._put('DEWPT', _num(cur, 'dewpoint_' + sfx), t_uom)\n        self._put('CLIHUM', _num(cur, 'humidity'), 51, 0)\n        if m:\n            self._put('BARPRES', _num(cur, 'pressure_mb'), 117, 1)\n        else:\n            self._put('BARPRES', _num(cur, 'pressure_in'), 23, 2)\n\n        speed = _num(cur, 'wind_kph' if m else 'wind_mph')\n        self._put('SPEED', speed, s_uom)\n        self._put('GUST', _num(cur, 'gust_kph' if m else 'gust_mph'), s_uom)\n        deg = _num(cur, 'wind_degree')\n        if deg is not None:\n            # uom 76 reserves 0 for 'no wind'; north is 360.\n            if deg == 0 and speed:\n                deg = 360\n            self._put('WINDDIR', deg, 76, 0)\n\n        self._put('CLOUD_COVER', _num(cur, 'cloud'), 51, 0)\n        self._put('UV', _num(cur, 'uv'), 71)\n        if m:\n            self._put('PRECIP', _num(cur, 'precip_mm'), 82, 1)\n            self._put('VISIBILITY', _num(cur, 'vis_km'), 83, 1)\n        else:\n            self._put('PRECIP', _num(cur, 'precip_in'), 105, 2)\n            self._put('VISIBILITY', _num(cur, 'vis_miles'), 116, 1)\n\n        cond = cur.get('condition') or {}\n        self._put('COND_CODE', _num(cond, 'code'), 56, 0, text=cond.get('text'))\n        self._put('DAYNIGHT', _num(cur, 'is_day'), 25, 0)\n\n        aq = cur.get('air_quality') or {}\n        self._put('AQI', _num(aq, 'us-epa-index'), 25, 0)\n        self._put('PM25', _num(aq, 'pm2_5'), 122, 1)\n        self._put('PM10', _num(aq, 'pm10'), 122, 1)\n",
+    "forecast_node": "\"\"\"Forecast Day node for WeatherAPI.com.\"\"\"\n\nimport udi_interface\n\nLOGGER = udi_interface.LOGGER\n\n\ndef _num(src, key):\n    \"\"\"Return src[key] as a float, or None if missing/not numeric.\"\"\"\n    try:\n        v = src.get(key)\n        return None if v is None else float(v)\n    except (TypeError, ValueError, AttributeError):\n        return None\n\n\nclass ForecastDay(udi_interface.Node):\n    id = '131313_forecast'\n    # Default uoms are the US ones; update() passes the right uom on every set.\n    # ST is the node's status value: the day's high temperature.\n    drivers = [\n        {'driver': 'ST', 'value': 0, 'uom': 17, 'name': 'High Temperature'},\n        {'driver': 'TEMP_LOW', 'value': 0, 'uom': 17, 'name': 'Low Temperature'},\n        {'driver': 'POP', 'value': 0, 'uom': 51, 'name': 'Chance of Rain'},\n        {'driver': 'POP_SNOW', 'value': 0, 'uom': 51, 'name': 'Chance of Snow'},\n        {'driver': 'PRECIP', 'value': 0, 'uom': 105, 'name': 'Total Precipitation'},\n        {'driver': 'SPEED', 'value': 0, 'uom': 48, 'name': 'Max Wind Speed'},\n        {'driver': 'UV', 'value': 0, 'uom': 71, 'name': 'UV Index'},\n        {'driver': 'COND_CODE', 'value': 0, 'uom': 56, 'name': 'Condition Code'},\n    ]\n\n    def _put(self, driver, value, uom, prec=1, text=None):\n        if value is None:\n            return  # field missing from this response: keep the last value\n        value = round(value, prec) if prec else int(round(value))\n        if text is None:\n            self.setDriver(driver, value, uom=uom)\n        else:\n            self.setDriver(driver, value, uom=uom, text=text)\n\n    def update(self, day, metric):\n        \"\"\"Apply the 'day' object of one forecastday entry.\"\"\"\n        day = day or {}\n        m = bool(metric)\n        sfx = 'c' if m else 'f'\n        t_uom = 4 if m else 17\n\n        self._put('ST', _num(day, 'maxtemp_' + sfx), t_uom)\n        self._put('TEMP_LOW', _num(day, 'mintemp_' + sfx), t_uom)\n        self._put('POP', _num(day, 'daily_chance_of_rain'), 51, 0)\n        self._put('POP_SNOW', _num(day, 'daily_chance_of_snow'), 51, 0)\n        if m:\n            self._put('PRECIP', _num(day, 'totalprecip_mm'), 82, 1)\n            self._put('SPEED', _num(day, 'maxwind_kph'), 32, 1)\n        else:\n            self._put('PRECIP', _num(day, 'totalprecip_in'), 105, 2)\n            self._put('SPEED', _num(day, 'maxwind_mph'), 48, 1)\n        self._put('UV', _num(day, 'uv'), 71)\n        cond = day.get('condition') or {}\n        self._put('COND_CODE', _num(cond, 'code'), 56, 0, text=cond.get('text'))\n"
+  },
+  "tests": {
+    "test_nodes.py": "import os\nimport sys\nfrom unittest.mock import MagicMock\n\nsys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))\n\nfrom current_node import CurrentConditions  # noqa: E402\nfrom forecast_node import ForecastDay  # noqa: E402\n\nCUR = {\n    'temp_c': 21.5, 'temp_f': 70.7, 'feelslike_c': 20.0, 'feelslike_f': 68.0,\n    'dewpoint_c': 10.2, 'dewpoint_f': 50.4, 'humidity': 55, 'cloud': 40,\n    'pressure_mb': 1015.0, 'pressure_in': 29.97,\n    'wind_mph': 8.1, 'wind_kph': 13.0, 'gust_mph': 12.3, 'gust_kph': 19.8, 'wind_degree': 0,\n    'precip_mm': 0.4, 'precip_in': 0.02, 'vis_km': 10.0, 'vis_miles': 6.0,\n    'uv': 5.0, 'is_day': 1, 'condition': {'text': 'Sunny', 'code': 1000},\n    'air_quality': {'pm2_5': 8.25, 'pm10': 12.5, 'us-epa-index': 2},\n}\nDAY = {\n    'maxtemp_c': 25.0, 'maxtemp_f': 77.0, 'mintemp_c': 12.0, 'mintemp_f': 53.6,\n    'maxwind_kph': 30.0, 'maxwind_mph': 18.6, 'totalprecip_mm': 2.5, 'totalprecip_in': 0.1,\n    'daily_chance_of_rain': 60, 'daily_chance_of_snow': 0, 'uv': 6.0,\n    'condition': {'text': 'Patchy rain nearby', 'code': 1063},\n}\n\n\ndef make(cls):\n    poly = MagicMock()\n    poly.db_getNodeDrivers.return_value = []\n    return cls(poly, 'ctl', 'addr', 'name')\n\n\ndef drv(node, name):\n    return next(d for d in node.drivers if d['driver'] == name)\n\n\ndef test_st_driver_present_and_old_ids_gone():\n    cur = make(CurrentConditions)\n    fc = make(ForecastDay)\n    assert [d['driver'] for d in cur.drivers].count('ST') == 1\n    assert [d['driver'] for d in fc.drivers].count('ST') == 1\n    assert 'CLITEMP' not in [d['driver'] for d in cur.drivers]\n    assert 'TEMP_HIGH' not in [d['driver'] for d in fc.drivers]\n\n\ndef test_current_us_units():\n    n = make(CurrentConditions)\n    n.update(CUR, False)\n    assert (drv(n, 'ST')['value'], drv(n, 'ST')['uom']) == (70.7, 17)\n    assert (drv(n, 'BARPRES')['value'], drv(n, 'BARPRES')['uom']) == (29.97, 23)\n    assert (drv(n, 'SPEED')['value'], drv(n, 'SPEED')['uom']) == (8.1, 48)\n    assert (drv(n, 'PRECIP')['value'], drv(n, 'PRECIP')['uom']) == (0.02, 105)\n    assert (drv(n, 'VISIBILITY')['value'], drv(n, 'VISIBILITY')['uom']) == (6.0, 116)\n\n\ndef test_current_metric_units():\n    n = make(CurrentConditions)\n    n.update(CUR, True)\n    assert (drv(n, 'ST')['value'], drv(n, 'ST')['uom']) == (21.5, 4)\n    assert (drv(n, 'BARPRES')['value'], drv(n, 'BARPRES')['uom']) == (1015.0, 117)\n    assert (drv(n, 'SPEED')['value'], drv(n, 'SPEED')['uom']) == (13.0, 32)\n    assert (drv(n, 'PRECIP')['value'], drv(n, 'PRECIP')['uom']) == (0.4, 82)\n    assert (drv(n, 'VISIBILITY')['value'], drv(n, 'VISIBILITY')['uom']) == (10.0, 83)\n\n\ndef test_switching_units_changes_uom():\n    n = make(CurrentConditions)\n    n.update(CUR, False)\n    n.update(CUR, True)\n    assert drv(n, 'ST')['uom'] == 4 and drv(n, 'ST')['value'] == 21.5\n\n\ndef test_air_quality_and_flags():\n    n = make(CurrentConditions)\n    n.update(CUR, False)\n    assert drv(n, 'AQI')['value'] == 2\n    assert drv(n, 'PM25')['value'] == 8.2 or drv(n, 'PM25')['value'] == 8.3\n    assert drv(n, 'DAYNIGHT')['value'] == 1\n    assert drv(n, 'COND_CODE')['value'] == 1000\n\n\ndef test_wind_degree_zero_with_wind_is_north_360():\n    n = make(CurrentConditions)\n    n.update(CUR, False)\n    assert drv(n, 'WINDDIR')['value'] == 360\n\n\ndef test_missing_fields_keep_previous_value():\n    n = make(CurrentConditions)\n    n.update(CUR, False)\n    n.update({'condition': {}}, False)\n    assert drv(n, 'ST')['value'] == 70.7\n\n\ndef test_forecast_us_and_metric():\n    n = make(ForecastDay)\n    n.update(DAY, False)\n    assert (drv(n, 'ST')['value'], drv(n, 'ST')['uom']) == (77.0, 17)\n    assert (drv(n, 'SPEED')['value'], drv(n, 'SPEED')['uom']) == (18.6, 48)\n    assert drv(n, 'POP')['value'] == 60\n    n.update(DAY, True)\n    assert (drv(n, 'TEMP_LOW')['value'], drv(n, 'TEMP_LOW')['uom']) == (12.0, 4)\n    assert (drv(n, 'PRECIP')['value'], drv(n, 'PRECIP')['uom']) == (2.5, 82)\n"
+  },
+  "custom_param_docs": "<h2>WeatherAPI</h2>\n<p>Shows current conditions, a multi-day forecast and air quality from <a href=\"https://www.weatherapi.com/\">WeatherAPI.com</a> for <b>one location</b>. Fill in <b>api_key</b> and <b>location</b>, then save. The plugin updates every 15 minutes (the long poll interval) and makes <b>one API call per update</b>.</p>\n\n<h3>api_key (required)</h3>\n<p>Your WeatherAPI.com key. Create a free account at <a href=\"https://www.weatherapi.com/signup.aspx\">weatherapi.com/signup.aspx</a> (no credit card needed), then copy the key from your <a href=\"https://www.weatherapi.com/my/\">account page</a>. Keep it private.</p>\n\n<h3>location (required)</h3>\n<p>Where you want the weather for. WeatherAPI.com accepts:</p>\n<ul>\n<li>A city name, e.g. <code>London</code> or <code>Paris, France</code></li>\n<li>Latitude and longitude, e.g. <code>48.8567,2.3508</code> (the most precise option)</li>\n<li>A US zip code, e.g. <code>10001</code>, or a UK/Canada postcode</li>\n</ul>\n<p>If the location is not found you will see a notice here.</p>\n\n<h3>units</h3>\n<p><code>us</code> (default) reports &deg;F, mph, inHg, inches and miles. <code>metric</code> reports &deg;C, km/h, mb, mm and km. You can change this at any time and the values are re-reported in the new units on the next update (use <b>Refresh Now</b> on the controller to apply it immediately).</p>\n<p><b>Note:</b> if you switch units, review any programs that compare these values against a fixed number (for example \"Temperature &gt; 80\"), since the number now means something different.</p>\n\n<h3>forecast_days</h3>\n<p>How many forecast nodes to create, from <code>1</code> to <code>14</code> (default <code>3</code>): Today, Tomorrow, Day 3, and so on. Your WeatherAPI.com plan limits how many days are available. If your plan returns fewer days than you asked for, the plugin only creates nodes for the days it received and shows a notice. Lowering the number removes the extra nodes.</p>\n\n<h3>Good to know</h3>\n<ul>\n<li>Air quality uses the US EPA index (Good to Hazardous), plus PM2.5 and PM10 in &micro;g/m&sup3;.</li>\n<li>Condition Code is WeatherAPI.com's numeric weather code (for example 1000 = Sunny/Clear). The full list is at <a href=\"https://www.weatherapi.com/docs/weather-icons/\">weatherapi.com/docs/weather-icons</a>.</li>\n<li>Free-plan limits are set by WeatherAPI.com and may change. If you exceed your monthly quota the plugin shows a notice instead of updating.</li>\n</ul>",
+  "controller_class": "Controller",
+  "controller_module": "plugin",
+  "version": "1.1.0"
+}

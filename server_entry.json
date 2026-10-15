@@ -1,0 +1,20 @@
+{
+  "name": "WeatherAPI",
+  "status": "active",
+  "developer": "michel@universal-devices.com",
+  "author": "Michel Kohanim",
+  "purchaseOptions": [],
+  "type": "python3",
+  "path": "/usr/home/admin/eisyai/generated_plugins/weatherapi",
+  "executable": "main.py",
+  "runAs": "admin",
+  "install": "install.sh",
+  "desc": "Current conditions, multi-day forecast and air quality from WeatherAPI.com for one location, in US or metric units.",
+  "customParams": "{\"api_key\": \"\", \"location\": \"\", \"units\": \"us\", \"forecast_days\": \"3\"}",
+  "discover": false,
+  "isyAccess": false,
+  "requireEisyui": false,
+  "shortPoll": 300,
+  "longPoll": 900,
+  "nsid": "b3e9a8a3-03e2-4d38-b763-39517778a0f1"
+}
